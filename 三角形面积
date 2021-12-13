@@ -1,0 +1,21 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //四舍五入 “.1f” 就是保留一位小数
+        //注意 用格式化输出是printf 不是print！！
+        int l = scan.nextInt();
+        int h = scan.nextInt();
+        if((l * h) % 2 == 0){
+          System.out.print((l * h) / 2);
+        }
+        else{
+          System.out.printf("%.1f", ((l * h) / 2.0));
+        }
+        scan.close();
+    }
+}

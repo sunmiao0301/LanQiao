@@ -1,0 +1,31 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+import java.math.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //"比值四舍五入后已经达到了与 0.618034 一致的精度"可以转化为"比值与0.618034差值的绝对值小于0.000001"
+        String s = "";
+        for(int i = 1; i < 100000; i++){
+          if((Math.abs(0.618034 - lucas(i)/lucas(i+1))) < 0.000001){
+            //类型转换为(int)double数 而不是int(double数)
+            s = (int)lucas(i) + "/" + (int)lucas(i+1);
+            break;
+          }
+        }
+        System.out.println(s);
+        scan.close();
+    }
+    public static double lucas(int i){
+      if(i == 1)
+        return 1;
+      if(i == 2)
+        return 3;
+      return lucas(i-1) + lucas(i-2);
+    }
+}
+//

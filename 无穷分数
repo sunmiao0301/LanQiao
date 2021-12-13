@@ -1,0 +1,20 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        double ret = helper(1);
+        System.out.printf("%.5f", ret);
+        scan.close();
+    }
+
+    public static double helper(int n){
+      if(n < 100)
+        return n/(n + helper(n + 1));
+      else
+        return 1;
+      }
+}

@@ -1,0 +1,28 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //这里的被年月日整除是指分别被！
+
+        //注意charAt内的数字类比数组下标
+        int bir = 19000000;
+        for(; bir < 20120312; bir++){
+          if(bir % 2012 == 0 && bir % 3 == 0 && bir % 12 == 0 
+          &&(Integer.toString(bir)).charAt(4) == '0' 
+          && (Integer.toString(bir)).charAt(5) == '6' 
+          && (
+          (Integer.toString(bir)).charAt(6) == '0'||
+          (Integer.toString(bir)).charAt(6) == '1'||
+          (Integer.toString(bir)).charAt(6) == '2'||
+          (Integer.toString(bir)).charAt(6) == '3'))
+        {
+          System.out.println(bir);
+        }
+    }
+    scan.close();
+}
+}

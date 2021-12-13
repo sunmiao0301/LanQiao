@@ -1,0 +1,38 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        int max = 0;
+        //注意静态初始化（省略格式）数组的语句不需要说明数组长度 只有动态声明的数组需要说明长度
+        int[] one = {97, 92, 0, 0, 89, 82, 0, 0, 0, 95, 0, 0, 94, 0, 0, 0, 98, 93, 0, 0};
+        int[] two = {90, 85, 0, 0, 83, 86, 0, 97, 0, 99, 0, 0, 91, 83, 0, 0, 83, 87, 0, 99};
+        int[] three = {0, 96, 0, 0, 97, 0, 0, 96, 89, 0, 96, 0, 0, 87, 98, 0, 99, 92, 0, 96};
+        int[] four = {0, 0, 0, 80, 0, 0, 87, 0, 0, 0, 97, 93, 0, 0, 97, 93, 98, 96, 89, 95};
+        int[] five = {0, 0, 93, 86, 0, 0, 90, 0, 0, 0, 0, 98, 0, 0, 98, 86, 81, 98, 92, 81};
+        for(int i = 0; i < 20; i++){
+          for(int j = 0; j < 20; j++){
+            for(int k = 0; k < 20; k++){
+              for(int l = 0;l < 20; l++){
+                for(int m = 0; m < 20; m++){
+                  if((i != j)&&(i != k)&&(i != l)&&(i != m)
+                  &&(j != k)&&(j != l)&&(j != m)
+                  &&(k != l)&&(k != m)
+                  &&(l != m))
+                    {
+                    if((one[i] + two[j] + three[k] + four[l] + five[m]) > max){
+                      max = one[i] + two[j] + three[k] + four[l] + five[m];
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        System.out.println(max);
+        scan.close();
+    }
+}

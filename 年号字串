@@ -1,0 +1,31 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        /*哈希表可能不是好的办法 所以我们尝试用字符数组
+        HashMap<String, int> alp = new HashMap<String, int>(26);
+        alp.put("A",1);
+        alp.put("B",2);
+        ...
+        */
+        //按序查找 试一试看是几位数
+        String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        char[] alp = s.toCharArray();           //这个将字符串转化为字符数组的方法string.toCharArray() 记住
+        for(int i = 0; i < 26; i++){
+          for(int j = 0; j < 26; j++){
+            for(int k = 0; k < 26; k++){
+                if ((k+1) + (j+1)*26 + (i+1)*26*26 == 2019)
+                //这个将字符转换为字符串的方法String.valueOf(char) 记住
+                System.out.println(String.valueOf(alp[i])+String.valueOf(alp[j])+String.valueOf(alp[k]));
+              }
+            }
+          }
+        scan.close();
+    }
+}

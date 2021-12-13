@@ -1,0 +1,21 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+// 自己的方法不好 记录下大佬的神方法 虽然是对题意的复现 但是很优美
+public class Main {
+    public static void main(String[] args) {
+        String s = "";
+        for(int i=1;i<=106;i++) {
+            s = s+ "abcdefghijklmnopqrs";
+        }
+        String t = "";
+        while(s.length()!=1) {
+            t = "";
+            for(int i=1;i<s.length();i=i+2) {
+                t = t + s.charAt(i);
+            }
+            s = t;
+        }
+        System.out.println(s);
+    }
+}

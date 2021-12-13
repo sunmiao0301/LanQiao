@@ -1,0 +1,24 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        int ret = 0;
+        for(int i = 1; i < 99999; i++){
+          //求按位累加
+          int sum = 0;
+          int j = i * i * i;
+          for(; j != 0; j = j / 10){//注意这里是j != 0 不是j / 10 != 0 不然会少加一个最高位 这也说明写代码之后一定要带入样例验算
+            sum = sum + j % 10; 
+          }
+          if(sum == i){
+            ret++;
+          }
+        }
+        System.out.print(ret);
+        scan.close();
+    }
+}

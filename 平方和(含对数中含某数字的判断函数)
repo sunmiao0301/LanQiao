@@ -1,0 +1,43 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+import java.math.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //此处将对于数中包含数这个问题进行解决 目前看到的比较好的方法是
+        /*
+        private static int isBoolan(int i) {
+        while(i!=0)
+        {
+            if(i%10==2||i%10==0||i%10==1||i%10==9)
+            {
+                return 1;
+            }
+            i=i/10;
+        }
+        }
+        return 0;
+        */
+        BigInteger num = new BigInteger("0");
+        for(int i = 1; i < 2020; i++){
+          num = num.add(BigInteger.valueOf(ret(i)));
+        }
+        System.out.println(num);
+        scan.close();
+    }
+    public static int ret(int i){
+      int init = i;
+      while(i != 0){//只要参数不为0可进行一轮循环
+        if(i%10 == 2 || i%10 == 0 || i%10 == 1 || i%10 == 9){//判断参数的个位数是否为2019
+          return init * init;
+        }
+        i = i/10;//传入新参数为原参数去除个位得到的高位
+      }
+      return 0;
+    }
+}
+//建议蓝桥杯别搞这种大数 对Java不友好 而且与算法无关

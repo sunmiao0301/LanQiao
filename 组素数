@@ -1,0 +1,27 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        int ret = 0;
+        int[] arr = new int[]{1949, 1994, 1499, 4199, 4919, 4991, 9149, 9194, 9419, 9491, 9914, 9941};
+        for(int i =0; i < 12; i++){
+          if(isPrime(arr[i])){
+            ret++;
+          }
+        }
+        System.out.println(ret);
+        scan.close();
+    }
+    public static boolean isPrime(int x){//注意x大于2
+      for(int i = 2; i * i <= x; i++){
+        if(x % i == 0){
+          return false;
+        }
+      }
+      return true;
+    }
+}

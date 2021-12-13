@@ -1,0 +1,33 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        double num = scan.nextInt();
+        int max = 0;
+        int min = 100;
+        //int sum;
+        double sum = 0;//不能只把average定为double 不然结果为71.0 而不是71.29
+        for(int i = 0; i < num; i++){
+          int j = scan.nextInt();
+          if(max < j)
+            max = j;
+          if(min > j)
+            min = j;
+          sum += j;
+        }
+        double ave = sum/num;
+        System.out.println(max);
+        System.out.println(min);
+        System.out.printf("%.2f",ave);//注意 是prinf不是println 
+        scan.close();
+    }
+}
+/*
+printf("%5.2f")中的“5.2”是指输出结果总长为五位数。
+比如x=12.31913
+则printf("%5.2f",x)就是“12.32”，注意小数点也算一位数长。
+*/

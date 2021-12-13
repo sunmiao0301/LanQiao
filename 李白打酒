@@ -1,0 +1,29 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //本题与上一题39级台阶没什么区别 参数多一点就行了
+        System.out.print(flower(5, 10, 2) + shop(5, 10, 2));
+        scan.close();
+    }
+    public static int flower(int shop, int flower, int d){//遇到花
+      if(shop == 0 && flower == 1 && d == 1){
+        return 1;
+      }
+      if(flower < 1){
+        return 0;
+      }
+      return flower(shop, flower - 1, d - 1) + shop(shop, flower - 1, d - 1);
+    }
+
+    public static int shop(int shop, int flower, int d){//遇到酒店
+      if(shop < 1){
+        return 0;
+      }
+      return flower(shop - 1, flower, 2 * d) + shop(shop - 1, flower, 2 * d);
+    }
+}

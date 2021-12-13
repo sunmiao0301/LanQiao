@@ -1,0 +1,45 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+import java.util.*;
+import java.math.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //不太理解什么是“如有选手成绩相同，则所有成绩并列的选手都能获奖，因此实际获奖人数可能比计划中多。”
+        //向上取整用Math.ceil(double a) 
+        //向下取整用Math.floor(double a)
+        //int scoreline = 0;
+        int stu_num = scan.nextInt();
+        double percent = scan.nextInt();
+        double[] arr = new double[stu_num];//
+        //double award_num = 0;
+
+        for(int i = 0; i < stu_num; i++){
+          int now = scan.nextInt();//先在arr[]存每个人成绩 i是当前已出成绩的人数
+          arr[stu_num - 1 - i] = now;//这里逆序又害了我
+          Arrays.sort(arr);
+
+          int award_num = (int)(Math.floor((i + 1) * percent / 100));//计算多人获奖时的获奖人数 我被这个百分数害惨了
+
+          if(award_num == 0 || award_num == 1){
+            System.out.print(MAX(arr)+" ");//打空格 + award_num+" "
+          }
+
+          else
+          {
+            System.out.print((int)arr[stu_num - award_num ]+ " ");//
+          }
+
+        }
+        scan.close();
+    }
+
+    public static int MAX(double[] arr){//取数组最大值函数
+      Arrays.sort(arr);
+      return (int)arr[arr.length - 1];
+    }
+}

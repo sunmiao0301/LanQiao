@@ -1,0 +1,95 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //row column 行 列
+        int n = scan.nextInt();
+        int m = scan.nextInt();
+        int[][] arr = new int[n][m];//把输入存进数组arr
+        for(int row = 0; row < n; row++){
+          for(int col = 0; col < m; col++){
+            arr[row][col] = scan.nextInt();
+          }
+        }
+        //反读数组 然后再存入新的数组 注意处理有雷和没雷点需要分开 不然会互相影响
+        int boom[][] = new int[n][m]; 
+        for(int i = 0; i < n; i++){//横着
+          for(int j = 0; j < m; j++){//竖着
+
+            if(i == 0 && j == 0)//else if之间不能有重合部分嘛 没试验 后面有介绍
+              boom[i][j] = arr[i][j+1] + arr[i+1][j] + arr[i+1][j+1];
+            else if(i == 0 && j == m-1)
+              boom[i][j] = arr[i][j-1] + arr[i+1][j] + arr[i+1][j-1];
+            else if(i == n-1 && j == 0)
+              boom[i][j] = arr[i-1][j] + arr[i-1][j+1] + arr[i][j+1];
+            else if(i == n-1 && j == m-1)
+              boom[i][j] = arr[i-1][j] + arr[i][j-1] + arr[i-1][j-1];
+
+            else if(i == 0 && j != m-1 && j != 0)
+              boom[i][j] = arr[i][j-1] + arr[i][j+1] + arr[i+1][j-1] + arr[i+1][j] + arr[i+1][j+1];
+            else if(i == n-1 && j != 0 && j != m-1)
+              boom[i][j] = arr[i][j-1] + arr[i][j+1] + arr[i-1][j-1] + arr[i-1][j] + arr[i-1][j+1];
+            else if(j == 0 && i != n-1 && i != 0)
+              boom[i][j] = arr[i-1][j] + arr[i-1][j+1] + arr[i][j+1] + arr[i+1][j+1] + arr[i+1][j];
+            else if(j == m-1 && i != n-1 && i != 0)
+              boom[i][j] = arr[i-1][j-1] + arr[i-1][j] + arr[i][j-1] + arr[i+1][j-1] + arr[i+1][j];
+
+            else{
+              boom[i][j] = arr[i-1][j-1] + arr[i-1][j] + arr[i-1][j+1]
+                         + arr[i][j-1] + arr[i][j+1]
+                         + arr[i+1][j-1] + arr[i+1][j] + arr[i+1][j+1];
+            }
+          }
+        }
+        for(int i = 0; i < n; i++){
+          for(int j = 0; j < m; j++){
+            if(arr[i][j] == 1){
+              boom[i][j] = 9;
+            }
+          }
+        }
+        for(int i = 0; i < n; i++){
+          for(int j = 0; j < m; j++){
+            if(j != m-1)
+              System.out.print(boom[i][j] + " ");
+            else
+              System.out.println(boom[i][j]);
+          }
+        }
+        scan.close();
+    }
+}
+/*
+注意 核心部分不能如下这么写 因为若是把第二部分写前面 后面if又会刷新之前的数值 且第一部分
+要是把第一部分写前面 又会直接出错 因为i==0 不能排除左上角和右上角的两个点 会导致数组出界
+            //第一部分
+            if(i == 0 )
+              boom[i][j] = arr[i][j-1] + arr[i][j+1] + arr[i+1][j-1] + arr[i+1][j] + arr[i+1][j+1];
+            if(i == n-1 )
+              boom[i][j] = arr[i][j-1] + arr[i][j+1] + arr[i-1][j-1] + arr[i-1][j] + arr[i-1][j+1];
+            if(j == 0 )
+              boom[i][j] = arr[i-1][j] + arr[i-1][j+1] + arr[i][j+1] + arr[i+1][j+1] + arr[i+1][j];
+            if(j == m-1 )
+              boom[i][j] = arr[i-1][j-1] + arr[i-1][j] + arr[i][j-1] + arr[i+1][j-1] + arr[i+1][j];
+             
+            //第二部分
+            if(i == 0 && j == 0)//else if之间不能有重合部分嘛
+              boom[i][j] = arr[i][j+1] + arr[i+1][j] + arr[i+1][j+1];
+            if(i == 0 && j == m-1)
+              boom[i][j] = arr[i][j-1] + arr[i+1][j] + arr[i+1][j-1];
+            if(i == n-1 && j == 0)
+              boom[i][j] = arr[i-1][j] + arr[i-1][j+1] + arr[i][j+1];
+            if(i == n-1 && j == m-1)
+              boom[i][j] = arr[i-1][j] + arr[i][j-1] + arr[i-1][j-1];
+              
+            if(i != 0 && i != n-1 && j != 0 && j != m-1)
+            {
+              boom[i][j] = arr[i-1][j-1] + arr[i-1][j] + arr[i-1][j+1]
+                         + arr[i][j-1] + arr[i][j+1]
+                         + arr[i+1][j-1] + arr[i+1][j] + arr[i+1][j+1];
+        
+*/

@@ -1,0 +1,26 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+import java.math.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //大数运算结果必须用String存储？ 好像不一定 如此输出也对
+        //需要注意的是 pow不需要大数 直接pow(11213)即可
+        //BigInteger a = new BigInteger("11213");
+        //需要注意的是 /与%的区别
+        BigInteger b = new BigInteger("2");
+        BigInteger c = new BigInteger("1");
+        BigInteger d = new BigInteger("10");
+        //BigInteger e = new BigInteger("100");
+        BigInteger left = b.pow(11213).subtract(c);
+        BigInteger right = d.pow(100);
+        
+        //String n = (b.pow(a)-c).mod(d.pow(100)).toString();
+        System.out.println(left.mod(right));
+        scan.close();
+    }
+}

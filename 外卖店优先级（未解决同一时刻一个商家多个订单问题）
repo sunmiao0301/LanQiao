@@ -1,0 +1,50 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+import java.util.HashMap; //HashMap使用前需要导入 记住
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        int N = scan.nextInt();
+        int M = scan.nextInt();
+        int T = scan.nextInt();
+        int ret = 0;
+        HashMap <Integer, Integer> map = new HashMap<Integer, Integer>();//HashMap中使用的是Integer 不是int
+
+        for(int i = 0; i < M; i++){//把所有订单信息读入
+          map.put(scan.nextInt(), scan.nextInt());//nextInt()读到后是数还是字符？
+        }
+
+        int[] arr = new int[N];//用来存N个店家的优先级
+        for(int j = 1; j <= T; j++){//按时间序读入
+          for(int k = 0; k < N; k++){//检索该时刻 每个店家的订单情况
+            while(map.getOrDefault(j, -1) == k + 1){//未解决同一时刻一个商家多个订单问题 romove不行 因为会全删
+              arr[k] += 2;
+              map.remove(j);//
+            }
+            if(map.getOrDefault(j, -1) == -1){
+              if(arr[k] > 0){
+                arr[k] -=0;
+              }
+              else{
+                arr[k] = 0;
+              }
+              //map.remove(j);
+            }
+          }
+          if(j == T){
+            for(int l = 0; l < N; l++){
+              if(arr[l] > 5){
+                ret++;
+              }
+            }
+          }
+        }
+        System.out.print(ret);
+        scan.close();
+    }
+}
+

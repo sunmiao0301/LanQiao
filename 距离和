@@ -1,0 +1,24 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //int[] alphabet = {a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z};
+        int ret = 0;
+        String s = "lanqiao";
+        for(int i = 0; i < 7; i++){
+          for(int j = 0; j < 7; j++){
+            if(i != j){
+              if(s.charAt(i) - s.charAt(j) > 0){
+                ret += s.charAt(i) - s.charAt(j);
+              }
+            }
+          }
+        }
+        System.out.print(ret);
+        scan.close();
+    }
+}

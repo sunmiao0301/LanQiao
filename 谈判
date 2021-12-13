@@ -1,0 +1,25 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        int n = scan.nextInt();
+        int[] arr = new int[n];
+        for(int i = 0; i < n; i++){
+          arr[i] = scan.nextInt();
+        }
+        Arrays.sort(arr);
+        int sum = 0;
+        int ret = arr[0];
+        for(int i = 1; i < n; i++){
+          ret += arr[i];//ret 是每次谈判花的金币
+          sum += ret;//sum 存储金币总数
+        }
+        System.out.print(sum);
+        scan.close();
+    }
+}

@@ -1,0 +1,28 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+import java.math.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        double AB = 52.1;
+        double BC = 57.2;
+        double CD = 43.5;
+        double DE = 51.9;
+        double EA = 33.4;
+        double EB = 68.2;
+        double EC = 71.9;
+        double s1 = (AB + EA + EB)/2;
+        double s2 = (EB + BC + EC)/2;
+        double s3 = (EC + CD + DE)/2;
+        double A1 = Math.sqrt(s1 * (s1 - AB) * (s1 - EA) * (s1 - EB));
+        double A2 = Math.sqrt(s2 * (s2 - EB) * (s2 - BC) * (s2 - EC));
+        double A3 = Math.sqrt(s3 * (s3 - EC) * (s3 - CD) * (s3 - DE));
+        double ret = A1 + A2 + A3;
+        System.out.printf("%.2f", ret);
+        scan.close();
+    }
+}

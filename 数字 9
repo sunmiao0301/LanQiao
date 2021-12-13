@@ -1,0 +1,18 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        int ret = 0;
+        for(int i = 1; i < 2020; i++){
+          if(i % 10 == 9 || (i / 10) % 10 == 9 || (((i / 100) % 10) == 9)){
+            ret++;
+          }
+        }
+        System.out.print(ret);
+        scan.close();
+    }
+}

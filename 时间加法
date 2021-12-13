@@ -1,0 +1,29 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //不考虑t分钟后还在当天
+        int hour = scan.nextInt();
+        int min = scan.nextInt();
+        int t = scan.nextInt();
+        if(min + t > 59){//分钟溢出
+          if(hour + ((min + t) / 60) > 23){//小时溢出
+            System.out.println((hour + (min + t) / 60) % 24);
+            System.out.print((min + t) % 60);
+          }
+          else{
+            System.out.println(hour + (min + t) / 60);
+            System.out.print((min + t) % 60);
+          }          
+        }
+        else{
+          System.out.println(hour);
+          System.out.print(min + t);
+        }
+        scan.close();
+    }
+}

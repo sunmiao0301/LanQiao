@@ -1,0 +1,23 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //11对应第0斜行 然后第一行取一半
+        //22对应前2斜行 然后第三行取一半 
+        //33对应前4斜行 然后第五行取一半
+        //44对应前6斜行 然后第七行取一半
+        //...
+        //2020对应前38行 然后39行取一半
+        int num = 0;
+        for(int i = 0; i < 20*2-1; i++){
+          num += i;
+        }
+        num += (39+1)/2;
+        System.out.println(num);
+        scan.close();
+    }
+}

@@ -1,0 +1,18 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        System.out.print(7 * 6 * 5 * 4 * 3);
+        /*
+        这是一道不用编程就可以写的题，大家上高中的时候是不是也经常写这种题呢？
+        没错，这就是一道有两个相同元素的全排列种数问题。7的阶乘除以2的阶乘，因为有2个字母相同。
+        如果是三个字母相同的话就要除以3的阶乘。
+        答案：2520
+        */
+        scan.close();
+    }
+}

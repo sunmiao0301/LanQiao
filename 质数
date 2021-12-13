@@ -1,0 +1,45 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        int ret = 2;
+        int count = 0;
+        while(count < 2019){//不知道为什么
+          if(isPrime(ret)){
+            count++;
+          }
+          ret++;
+        }
+        System.out.println(ret-1);//得到质数ret后还会在+2才能判断是否<2018 所以输出的时候要减掉
+        scan.close();
+    }
+
+    public static boolean isPrime(int x){//判断复数 
+      for(int i = 2; i * i <=  x; i++){//i * i <=  x与i <= Math.sqrt(x)有时间上的差别
+        if(x % i == 0){                //由于前几个质数2 3的特殊性 所以这样处理不会因为i * i <=  x而遗漏质数
+          return false;
+        }
+      }
+      return true;
+    }
+}
+/*  不知道为什么这样处理的时间反而不如上面的 明明要少判断一半啊
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        int ret = 3;
+        int count = 0;
+        while(count < 2018){
+          if(isPrime(ret)){
+            count++;
+          }
+          ret+=2;
+        }
+        System.out.println(ret-2);//得到质数ret后还会在+2才能判断是否<2018 所以输出的时候要减掉
+        scan.close();
+    }
+*/

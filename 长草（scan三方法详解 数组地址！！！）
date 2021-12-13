@@ -1,0 +1,102 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        /*
+        本题对理解scan的三个函数nextInt next nextLine都大有益处
+        首先nextInt是读取 得到数字
+        next和nextLine是读取 得到字符串
+        且nextInt读完之后 光标应该是在数字之后 
+        所以本题在第一行两次nextInt之后使用nextLine想要读取第二行是不可能的
+        光标会一直在这一行往后找 找不到 直接卡死
+      next():
+        1、一定要读取到有效字符后才可以结束输入。
+        2、对输入有效字符之前遇到的空白，next() 方法会自动将其去掉。
+        3、只有输入有效字符后才将其后面输入的空白作为分隔符或者结束符。
+        next() 不能得到带有空格的字符串。
+      nextLine()：
+        1、以Enter为结束符,也就是说 nextLine()方法返回的是输入回车之前的所有字符。
+        2、可以获得空白。
+        */
+        int n = scan.nextInt();
+        int m = scan.nextInt();
+        char[][] arr = new char[n][m];
+        for(int i = 0; i < n; i++){
+          String temp = scan.next();
+          for(int j = 0; j < m; j++){
+            arr[i][j] = temp.charAt(j);
+          }
+        }
+        int k = scan.nextInt();
+        int[][] num = new int[n][m];
+        
+        for(int i = 0; i < n; i++){
+          for(int j = 0; j < m; j++){
+            if(arr[i][j] == 'g'){
+              num[i][j] = 1;
+            }
+            else{
+              num[i][j] = 0;
+            }
+          }
+        }
+
+        for(int i = 0; i < k; i++){
+          helper(n, m, num);
+        }
+        
+        for(int i = 0; i < n; i++){
+          for(int j = 0; j < m; j++){
+            if(j == m-1){
+              System.out.println(num[i][j] != 0?"g":".");
+            }
+            else if(j != m-1){
+              System.out.print(num[i][j] != 0?"g":".");
+            }
+          }
+        }
+        
+
+        scan.close();
+    }
+    public static void helper(int n, int m, int[][] num){//返回数组的方法是这样的
+        int[][] ret = new int[n][m];
+        for(int i = 0; i < n; i++) {
+        	for(int j = 0; j < m; j++) {
+        		ret[i][j] = num[i][j];
+        	}
+        }
+        //System.out.print(ret[0][4]);
+    	for(int i = 0; i < n; i++){
+    		for(int j = 0; j < m; j++){
+
+        if(num[i][j] != 0){
+            if(i != 0){
+              ret[i-1][j]++;
+            }
+            if(i != n-1){
+              ret[i+1][j]++;
+            }
+            if(j != 0){
+              ret[i][j-1]++;
+            }
+            if(j != m-1){
+              ret[i][j+1]++;
+            }
+          }
+          
+          //else{};
+        }
+      }
+    	for(int i = 0; i < n; i++) {
+        	for(int j = 0; j < m; j++) {
+        		num[i][j] = ret[i][j];
+        	}
+        }
+    }
+    
+}

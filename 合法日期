@@ -1,0 +1,66 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //非填空的日期题 关注
+        int m = scan.nextInt();
+        int d = scan.nextInt();
+        //非闰年
+        if(m == 2){
+          if(d < 29){
+            System.out.print("yes");
+          }
+          else{
+            System.out.print("no");
+          }
+        }
+        else if(m == 1 || m == 3 || m == 5 || m == 7 || m == 8 || m == 10 || m == 12){
+          if(d < 32){
+            System.out.print("yes");
+          }
+          else{
+            System.out.print("no");
+          }
+        }
+        else if(m < 13)
+        {
+          if(d < 31){
+            System.out.print("yes");
+          }
+          else{
+            System.out.print("no");
+          }
+        }
+        else{
+          System.out.print("no");
+        }
+        scan.close();
+    }
+}
+
+/8
+更好的方法
+import java.util.*;
+public class Main{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int m=sc.nextInt();
+        int d=sc.nextInt();
+        int[] a={0,31,28,31,30,31,30,31,31,30,31,30,31};
+        if (m <= 12) {
+            if (a[m]>=d) {
+                System.out.println("yes");
+            }else {
+                System.out.println("no");
+            }
+        }else {
+            System.out.println("no");
+        }
+    }
+}
+
+*/

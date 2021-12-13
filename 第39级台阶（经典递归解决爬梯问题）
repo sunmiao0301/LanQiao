@@ -1,0 +1,33 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //第一次做这种爬楼梯的题目 记录一下
+        //一个递归 形成答案的结果应该是一个树一样的形式
+        System.out.print(left(39));
+        scan.close();
+    }
+
+  public static int left(int step){//此为左脚函数 参数是此时剩余的台阶数 返回的值是到这一步时候 形成的走法数
+    if(step == 1){
+      return 0;
+    }
+    if(step == 2){
+      return 1;
+    }
+    return right(step - 1) + right(step - 2);
+  }
+  public static int right(int step){//此为右脚函数 参数是此时剩余的台阶数 返回的值是到这一步时候 形成的走法数
+    if(step == 1){
+      return 1;
+    }
+    if(step == 2){
+      return 1;
+    }
+    return left(step - 1) + left(step - 2);
+  }
+}

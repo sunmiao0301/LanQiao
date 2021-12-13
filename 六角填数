@@ -1,0 +1,76 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        int ret = 0;
+            for(int c = 2; c < 13; c++){
+              if( c == 3 || c == 8)
+              continue;
+              for(int d = 2 ; d < 13; d++){
+                if( d == 3 || d == 8)
+                continue;
+                for(int e = 2; e < 13; e++){
+                  if( e == 3 || e == 8)
+                  continue;
+                  for(int f = 2; f < 13; f++){
+                    if( f == 3 || f == 8)
+                    continue;
+                    for(int g = 2; g < 13; g++){
+                      if( g == 3 || g == 8)
+                      continue;
+                      for(int h = 2; h <13; h++){
+                        if( h == 3 || h == 8)
+                        continue;
+                        for(int i = 2; i < 13; i++){
+                          if( i == 3 || i == 8)
+                          continue;
+                          for(int j = 2; j < 13; j++){//10
+                        	if( j == 3 || j == 8)
+                            continue;
+                            for(int k = 2; k < 13; k++){
+                              if( k == 3 || k == 8)
+                              continue;
+                                if((1 + c + f + h) == (1 + d + g + k) 
+                                && (1 + c + f + h) == (h + i + j + k)
+                                && (1 + c + f + h) == (8 + c + d + e)
+                                && (1 + c + f + h) == (8 + f + i + 3)
+                                && (1 + c + f + h) == (e + g + j + 3)
+                                && c != d && c != e && c != f && c != g && c != h && c != i && c != j && c != k
+                                && d != e && d != f && d != g && d != h && d != i && d != j && d != k
+                                && e != f && e != g && e != h && e != i && e != j && e != k
+                                && f != g && f != h && f != i && f != j && f != k
+                                && g != h && g != i && g != j && g != k
+                                && h != i && h != j && h != k
+                                && i != j && i != k
+                                && j != k)
+                                {
+                                  ret = f;
+                                }
+                              
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          
+        
+        System.out.print(ret);
+        scan.close();
+    }
+}
+//12个数
+        /*
+     1
+  8 c d e
+   f   g 
+  h i j k 
+     3
+        */

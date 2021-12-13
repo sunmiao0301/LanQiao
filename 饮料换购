@@ -1,0 +1,20 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        int num = scan.nextInt();//喝完第一次手上的瓶盖num
+        int dri = num;//第一次喝掉的饮料数
+        while(num >= 3){
+          int exc = 0;//每一次换得的饮料初始化
+          exc = num/3;//瓶盖换得的饮料
+          dri = dri + exc;//喝掉换的饮料
+          num = exc + num%3;//现在手上的瓶盖
+        }
+        System.out.println(dri);
+        scan.close();
+    }
+}

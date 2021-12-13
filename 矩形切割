@@ -1,0 +1,13 @@
+//后续将更新代码写法
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        System.out.println(21);
+        scan.close();
+    }
+}

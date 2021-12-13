@@ -1,0 +1,38 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //补充一下ASCII码的知识 有助于把字符和数字联系起来
+        //A从65开始 a从97开始
+        int[] arr = new int[26];
+        String s = scan.nextLine();
+        //length是对数组用的 length()是对字符串用的
+        for(int i = 0; i < s.length(); i++){
+          arr[s.charAt(i) - 97]++;
+        }
+        int max = 0;
+        for(int i = 25; i > -1; i--){
+          if(arr[i] > max){
+            max = arr[i];
+          }
+        } 
+        for(int i = 0; i < 26; i++){
+          if(arr[i] == max){
+            //char c = 'i + 97';
+            //输出ASCII码对应的字符 用强制转换即可
+            System.out.println((char)(i + 97));
+            System.out.print(arr[i]);
+            break;
+          }
+          
+        }
+
+        scan.close();
+    }
+}

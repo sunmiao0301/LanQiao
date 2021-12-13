@@ -1,0 +1,27 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+//好看的代码被改的不成样子 java不支持大数之间普通运算符的运算是真的伤
+//注意这些用到的大数放在静态方法里面声明 不然报错error: non-static variable three cannot be referenced from a static context
+import java.math.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        System.out.println(helper(64));
+        scan.close();
+    }
+    
+    public static BigInteger helper(int i){
+      BigInteger one = new BigInteger("1");
+      BigInteger two = new BigInteger("2");
+      BigInteger three = new BigInteger("3");
+      if(i == 2)
+        return three;
+      if(i > 2)
+        return one.add(two.multiply(helper(i - 1)));
+      return one;
+    }
+}

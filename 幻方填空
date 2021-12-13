@@ -1,0 +1,23 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        /*
+16  a  b  13
+ c  d  11  e
+ 9  f  g  h
+ i  15 j  1
+
+        */
+        //个人感觉这种题没有什么意义 用机子上的编译器也不用担心超时问题 只需要满足如下条件：
+        //1）填入的数字与已有的数字不重复
+        //2）填入的数字各不相等
+        System.out.print(12);
+        scan.close();
+    }
+}
+//为求稳妥 可以输出幻方填好之后的每个值 进行验算

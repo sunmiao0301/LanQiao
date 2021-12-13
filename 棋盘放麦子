@@ -1,0 +1,28 @@
+//注意数据类型 int型最大值不够 所以要用大数BigInteger 导致原来漂亮代码 搞得繁琐不堪 可惜
+
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+import java.math.BigInteger;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        BigInteger num = new BigInteger("0");
+        for(int i = 1; i < 65; i++){
+          num = num.add(m(i));
+        }
+        System.out.println(num);
+        scan.close();
+   }
+
+    public static BigInteger m(int g){
+      BigInteger two = new BigInteger("2");
+      BigInteger one = new BigInteger("1");
+      if(g == 1)
+        return one;
+      return two.multiply(m(g - 1));
+    }
+}

@@ -1,0 +1,46 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+import java.math.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        int gap = 1000000000;
+        int num = scan.nextInt();//注意要用nextInt 读到的才是int 若是nextLine 则读到的是String
+        //想要读取数组 得：
+        int[] Array = new int[num];
+        for(int i = 0; i < num; i++){
+          num = scan.nextInt();
+          Array[i] = num;
+        }
+        //由于最后不需要输出数列 只需输出数列项数 所以我们可以假设是递增等差数列
+        for(int i = 0; i < num; i++){
+          for(int j = 0; j < num; j++){
+            if(Math.abs(Array[i] - Array[j]) > 0 && gap > Array[i] - Array[j])
+            {
+              gap = Math.abs(Array[i] - Array[j]);
+            }
+          }
+        }
+        int min = 1000000000;
+        for(int m = 0; m < num; m++){
+          if(min > Array[m])
+            min = Array[m];
+        }
+        int max = 0;
+        for(int n = 0; n < num; n++){
+          if(max < Array[n])
+            max = Array[n];
+        }
+        //System.out.println(Array[0]);
+        //System.out.println(Array[1]);
+        //System.out.println(Array[2]);
+        //System.out.println(Array[1]);
+        //System.out.println(num);
+        System.out.println((max - min)/gap + 1);
+        scan.close();
+    }
+}

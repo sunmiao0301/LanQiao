@@ -1,0 +1,20 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        int i = scan.nextInt();
+        //2021年2月份是28天 闰年2月份是29天
+        if(i == 2)
+          System.out.print(28);
+        else if(i == 4 || i == 6 || i == 9 || i == 11)
+          System.out.print(30);
+        else{
+          System.out.print(31);
+        }
+        scan.close();
+    }
+}

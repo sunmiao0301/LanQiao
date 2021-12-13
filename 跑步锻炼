@@ -1,0 +1,23 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        /*
+        使用Excel解此题: 
+        1.新建一个Excel文件 
+        2.填充2000年1月1日到2020年10月1日 
+        3.通过单元格格式中在日期后加上对应的星期数 
+        4.单元格行数记为h；
+        查找“星期一”，找到的数量记为a; 
+        查找“月1日”（不能是1日，否则如11日也会计入），找到的数量记为b；
+        查找“月1日星期一”，找到的数量记为c；
+        答案n=h+a+b-c;
+        */
+        System.out.print(8879);
+        scan.close();
+    }
+}

@@ -1,0 +1,56 @@
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //保留几位小数 是四舍五入的
+        //System.out.print(Math.round(8, Fibonacci(n) / Fibonacci(n - 1)));
+        int n = scan.nextInt();
+        System.out.println(String.format("%.8f", Fibonacci(n) / Fibonacci(n + 1)));
+        scan.close();
+    }
+    public static double Fibonacci(int i){
+      if(i == 1){
+        return 1;
+      }
+      if(i == 2){
+        return 1;
+      }
+      return Fibonacci(i - 1) + Fibonacci(i - 2);
+    }
+}
+
+//加了个分支后不超时的版本
+import java.util.Scanner;
+// 1:无需package
+// 2: 类名必须Main, 不可修改
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        //在此输入您的代码...
+        //保留几位小数 是四舍五入的
+        //System.out.print(Math.round(8, Fibonacci(n) / Fibonacci(n - 1)));
+        int n = scan.nextInt();
+        if(n > 20){
+          System.out.print(0.61803399);
+        }
+        else{
+          System.out.println(String.format("%.8f", Fibonacci(n) / Fibonacci(n + 1)));
+          scan.close();
+        }
+        
+    }
+    public static double Fibonacci(int i){
+      if(i == 1){
+        return 1;
+      }
+      if(i == 2){
+        return 1;
+      }
+      return Fibonacci(i - 1) + Fibonacci(i - 2);
+    }
+}
